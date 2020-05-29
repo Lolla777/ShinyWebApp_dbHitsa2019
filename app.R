@@ -843,7 +843,7 @@ server <- function(input, output,session) {
                        "Humidity, %" = df[df$sensor=="Temperature and Humidity Sensor Pro" & df$valuetype=="Humidity",c("date","data")],
                        "Loudness Sensor, db"= df[df$sensor=="Loudness Sensor" & df$valuetype=="Detsibell", c("date","data")],
                        "Carbon dioxide equivalent CO2eq, ppm"= df[df$sensor=="Grove VOC and eCO2 Gas Sensor" & df$valuetype=="Carbon dioxide equivalent CO2eq",c("date","data")],
-                       "Light Sensor, LUX" = df[df$sensor=="Light Sensor" & df$valuetype=="Illuminance",c("date","data")],
+                       "Light Sensor, lux" = df[df$sensor=="Light Sensor" & df$valuetype=="Illuminance (Visible)",c("date","data")],
                        "PIR Motion Sensor"= df[df$sensor=="PIR Motion Sensor" & df$valuetype=="PIR on",c("date","data")],
                        "Sunlight Sensor, lm"= df[df$sensor=="Sunlight Sensor" & df$valuetype=="Lumen",c("date","data")],
                        "Ultraviolet index, UV"= df[df$sensor=="Sunlight Sensor" & df$valuetype=="Ultraviolet index",c("date","data")])
@@ -865,7 +865,7 @@ server <- function(input, output,session) {
                        "Humidity, %" = df[df$sensor=="Temperature and Humidity Sensor Pro" & df$valuetype=="Humidity",c("date","data")],
                        "Loudness Sensor, db"= df[df$sensor=="Loudness Sensor" & df$valuetype=="Detsibell", c("date","data")],
                        "Carbon dioxide equivalent CO2eq, ppm"= df[df$sensor=="Grove VOC and eCO2 Gas Sensor" & df$valuetype=="Carbon dioxide equivalent CO2eq",c("date","data")],
-                       "Light Sensor, LUX" = df[df$sensor=="Light Sensor" & df$valuetype=="Illuminance",c("date","data")],
+                       "Light Sensor, lux" = df[df$sensor=="Light Sensor" & df$valuetype=="Illuminance (Visible)",c("date","data")],
                        "PIR Motion Sensor"= df[df$sensor=="PIR Motion Sensor" & df$valuetype=="PIR on",c("date","data")],
                        "Sunlight Sensor, lm"= df[df$sensor=="Sunlight Sensor" & df$valuetype=="Lumen",c("date","data")],
                        "Ultraviolet index, UV"= df[df$sensor=="Sunlight Sensor" & df$valuetype=="Ultraviolet index",c("date","data")],
