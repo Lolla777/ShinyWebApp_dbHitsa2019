@@ -639,13 +639,9 @@ server <- function(input, output,session) {
       
       df_postgres1 <- NewTableCurrentDate()
       
-      andmed <- df_postgres1[df_postgres1$sensor=="High Accuracy Temperature" & 
-                               df_postgres1$valuetype=="T",c("date_time","data")]
+      andmed <- df_postgres1[df_postgres1$sensor=="High Accuracy Temperature"&df_postgres1$valuetype=="T",c("date_time","data")]
       
-      p <- ggplot(andmed,aes(x=date_time, y=data)) +
-        geom_line(color="deepskyblue3", size=1) +
-        labs(title=paste("High Accuracy Temperature ")) + xlab("Dates")+ ylab("C") 
-                    + theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
+      p <- ggplot(andmed,aes(x=date_time, y=data))+geom_line(color="deepskyblue3", size=1)+labs(title=paste("High Accuracy Temperature ")) + xlab("Dates")+ ylab("C")+theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
       p <- ggplotly(p)
       p <- config(p,modeBarButtons = list(list("toImage")))
       p 
