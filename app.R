@@ -896,7 +896,7 @@ server <- function(input, output,session) {
       df1<- as.data.frame(data_tableK2())
       df2=data.frame(df,df1)
       p <- ggplot(df2,aes(x=df2[,2], y=df2[,4])) +
-        geom_line(color="deepskyblue3", size=1) +
+        geom_point(color="deepskyblue3", size=1) +
         labs(title=paste("High Accuracy Temperature ")) +xlab(input$var2)+ylab(input$var3)+theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
       p <- ggplotly(p)
       p <- config(p,modeBarButtons = list(list("toImage")))
