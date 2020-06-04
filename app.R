@@ -61,57 +61,29 @@ body <- dashboardBody(
                         tabItems(
                                   # First tab content
                                   tabItem("groove", h2("Grove VOC and eCO2 Gas Sensor"), br(),
-                                          fluidRow( box(width = 4, plotlyOutput("plotly2")),
-                                                    box(width = 8, plotlyOutput("plotly22a"))),
+                                          fluidRow( box(width = 4, plotlyOutput("plotly2")),box(width = 8, plotlyOutput("plotly22a"))),
                                           br(),
-                                          fluidRow(box(width = 4, plotlyOutput("plotly5")),
-                                                   box(width = 8, plotlyOutput("plotly22b"))),
+                                          fluidRow(box(width = 4, plotlyOutput("plotly5")),box(width = 8, plotlyOutput("plotly22b"))),
                                           ),
                                   tabItem("pir", h2("PIR Motion Sensor"), br(),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly3")), 
-                                            box(width = 8, plotlyOutput("plotly23")))
-                                          ),
+                                          fluidRow(box(width = 4,plotlyOutput("plotly3")),box(width = 8, plotlyOutput("plotly23")))),
                                   tabItem("sunlight", h2("Sunlight Sensor"), br(),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly4")),
-                                            box(width = 8,  plotlyOutput("plotly27a"))),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly8")),
-                                            box(width = 8,  plotlyOutput("plotly27b"))
-                                          ),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly9")),
-                                            box(width = 8, plotlyOutput("plotly27c")))
-                                          ),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly4")), box(width = 8,  plotlyOutput("plotly27a"))),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly8")), box(width = 8,  plotlyOutput("plotly27b"))),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly9")), box(width = 8, plotlyOutput("plotly27c")))),
                                   tabItem("pro", h2("Temperature and Humidity Sensor Pro"), br(),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly6")),
-                                            box(width = 8,plotlyOutput("plotly26a"))
-                                            ),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly7")),
-                                            box(width = 8,plotlyOutput("plotly26b")))
-                                          ),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly6")), box(width = 8,plotlyOutput("plotly26a"))),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly7")), box(width = 8,plotlyOutput("plotly26b")))),
                                   tabItem("high", h2("High Accuracy Temperature"), br(),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly1")),
-                                            box(width = 8,plotlyOutput("plotly21")))
-                                          ),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly1")), box(width = 8,plotlyOutput("plotly21")))),
                                   tabItem("light", h2("Light Sensor"), br(),
-                                          fluidRow(
-                                            box(width = 4,plotlyOutput("plotly10")),
-                                            box(width = 8,plotlyOutput("plotly24")))
-                                          ),
+                                          fluidRow( box(width = 4,plotlyOutput("plotly10")), box(width = 8,plotlyOutput("plotly24")))),
                                   tabItem("loudness", h2("Loudness Sensor"), br(),
-                                          fluidRow(
-                                            box(width = 4, plotlyOutput("plotly11")),
-                                            box(width = 8,plotlyOutput("plotly25"))),
-                                          ),
+                                          fluidRow( box(width = 4, plotlyOutput("plotly11")), box(width = 8,plotlyOutput("plotly25")))),
                                   tabItem("currentdata", h2("Current data from DB"), br(),
                                             downloadButton("downloadData11","Download"),br(),br(),
                                             box(width = 12, DTOutput("tabelCurrent"))),
-                                 
+                                  
                                   #Second tab content
                                   tabItem(tabName = "select",
                                           selectInput("var1",
@@ -124,8 +96,7 @@ body <- dashboardBody(
                                                                      "Sunlight Sensor, lm",
                                                                      "Temperature, C",
                                                                      "Total Volatile Organic Compounds, ppb",
-                                                                     "Ultraviolet index, UV")
-                                          ),
+                                                                     "Ultraviolet index, UV")),
                                           dateRangeInput("dates1",
                                                          "Choose date range",
                                                          start = Sys.Date()-16,
@@ -135,25 +106,13 @@ body <- dashboardBody(
                                                          #language = 'et',
                                                          weekstart = 1,
                                                          separator = " - "),
-                                          fluidRow(
-                                          box(width = 12,
-                                              plotlyOutput("plotly31"))),
-                                          fluidRow(
-                                          box(width = 12,
-                                              br(),
-                                              downloadButton("downloadDataSelect","Download"),
-                                              br(),
-                                              DTOutput("tabelK"))),
-                                          fluidRow(
-                                            box(htmlOutput("summary"))
-                                          )
-                                          
-                                  ),
-                                  
-                                  #Third tab content
+                                          fluidRow( box(width = 12, plotlyOutput("plotly31"))),
+                                          fluidRow( box(width = 12, br(), downloadButton("downloadDataSelect","Download"), br(), DTOutput("tabelK"))),
+                                          fluidRow( box(htmlOutput("summary")))),
+                                 
+                                   #Third tab content
                                   tabItem(tabName = "analysis",
-                                          fluidRow(
-                                            box(width = 6,
+                                          fluidRow( box(width = 6,
                                                 selectInput("var2",
                                                             label = "Choose a sensor",
                                                             choices = list("Carbon dioxide equivalent CO2eq, ppm",
@@ -164,8 +123,7 @@ body <- dashboardBody(
                                                                            "Sunlight Sensor, lm",
                                                                            "Temperature, C",
                                                                            "Total Volatile Organic Compounds, ppb",
-                                                                           "Ultraviolet index, UV")
-                                                            ) ),
+                                                                           "Ultraviolet index, UV"))),
                                             box(width = 6,
                                                 selectInput("var3",
                                                             label = "Choose a sensor",
@@ -177,32 +135,18 @@ body <- dashboardBody(
                                                                            "Sunlight Sensor, lm",
                                                                            "Temperature, C",
                                                                            "Total Volatile Organic Compounds, ppb",
-                                                                           "Ultraviolet index, UV")
-                                                ))
-                                          ),
-                                          fluidRow(
-                                            box(width = 6,
-                                                DTOutput("tabelK1"),
-                                                ),
-                                            box(width = 6,
-                                                DTOutput("tabelK2")),
-                                          
-                                          box(title = "Plot",
-                                              plotlyOutput("plotly41")
-                                              )
-                                  )),
-                                  
-                                  #Fourth tab content
+                                                                           "Ultraviolet index, UV")))),
+                                          fluidRow( box(width = 6, DTOutput("tabelK1"),),
+                                                    box(width = 6, DTOutput("tabelK2")),
+                                                    box(title = "Plot", plotlyOutput("plotly41")))),
+                                 
+                                   #Fourth tab content
                                   tabItem(tabName = "data",
-                                          h2("All data from DB"),
-                                                    br(),
-                                                      downloadButton("downloadDataAll","Download"),
-                                                      br(),br(),
-                                                      box(width = 12, DTOutput("tabelAll") )
-                                                     )
+                                          h2("All data from DB"), br(),
+                                                      downloadButton("downloadDataAll","Download"), br(),br(),
+                                                      box(width = 12, DTOutput("tabelAll")))
                                   
-                    )
-))
+)))
 
 # Server logic
 server <- function(input, output,session) {
@@ -573,8 +517,8 @@ server <- function(input, output,session) {
     
     inputPlot10<- reactive({
       df_postgres1 <- NewTableCurrent()
-      andmed <- df_postgres1[df_postgres1$sensor =="Light Sensor"& df_postgres1$valuetype=="Illuminance (Visible)","data"]
-      
+      andmed <- df_postgres1[df_postgres1$sensor =="Light Sensor"&
+                               df_postgres1$valuetype=="Illuminance (Visible)","data"]
       g <- plot_ly(
         type = "indicator",
         mode = "gauge+number+delta",
@@ -595,7 +539,6 @@ server <- function(input, output,session) {
           margin = list(l=20,r=30),
           paper_bgcolor = "lavender",
           font = list(color = "darkblue", family = "Arial"))
-      
       g
     })
     
@@ -709,11 +652,12 @@ server <- function(input, output,session) {
     inputPlot24 <- reactive({
       
       df_postgres1 <- NewTableCurrentDate()
-      andmed <- df_postgres1[df_postgres1$sensor=="Light Sensor" & df_postgres1$valuetype=="Illuminance (Visible)",c("date_time","data")]
-      
+      andmed <- df_postgres1[df_postgres1$sensor=="Light Sensor" &
+                               df_postgres1$valuetype=="Illuminance (Visible)",c("date_time","data")]
       p <- ggplot(andmed,aes(x=date_time, y=data)) +
         geom_line(color="deepskyblue3", size=1) +
-        labs(title=paste("Light Sensor")) +xlab("Dates")+ylab("lm")+theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
+        labs(title=paste("Light Sensor")) +xlab("Dates")+ylab("lm")+
+                            theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
       p <- ggplotly(p)
       p <- config(p,modeBarButtons = list(list("toImage")))
       p 
@@ -950,8 +894,8 @@ server <- function(input, output,session) {
       
       df <- as.data.frame(data_tableK1())
       df1<- as.data.frame(data_tableK2())
-      
-      p <- ggplot(df,df1,aes(x=df[,2], y=df1[,2])) +
+      df2=data.frame(df,df1)
+      p <- ggplot(df2,aes(x=df2[,2], y=df2[,4])) +
         geom_line(color="deepskyblue3", size=1) +
         labs(title=paste("High Accuracy Temperature ")) +xlab(input$var2)+ylab(input$var3)+theme(plot.title=element_text(hjust = 0.5,size=14, face="bold"))
       p <- ggplotly(p)
